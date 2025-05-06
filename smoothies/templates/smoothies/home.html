@@ -1,0 +1,21 @@
+{% extends "smoothies/base.html" %}
+
+{% block title %}Home - Smoothie Heaven{% endblock %}
+
+{% block content %}
+    <h2 class="text-center my-5">Welcome to Smoothie Heaven!</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for smoothie in smoothies %}
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ smoothie.name }}</h5>
+                        <p class="card-text">{{ smoothie.description }}</p>
+                        <p><strong>Ingredients:</strong> {{ smoothie.ingredients }}</p>
+                        <p><em>Posted on {{ smoothie.date_posted }} by {{ smoothie.author }}</em></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
