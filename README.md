@@ -42,4 +42,12 @@ Updated 'DIRS' setting in 'setting.py' to include the correct template.
 
 **Resolved:** I installed crispy-bootstrap5 for compatibility, and it now works as intended.
 
+---
+
+**Issue:** The logout page was not working and returned a 405 error.
+
+**Resolved:** Resolved by making sure the correct method (POST) was used.
+
+---
+
 ## Credits
