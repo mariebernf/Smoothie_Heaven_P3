@@ -129,6 +129,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK= 'bootstrap5'
 
-LOGIN_REDIRECT_URL = 'smoothies-home'
+LOGIN_REDIRECT_URL = 'user-profile'
+
+LOGIN_URL = 'user-profile'
 
 LOGOUT_REDIRECT_URL = '/'
