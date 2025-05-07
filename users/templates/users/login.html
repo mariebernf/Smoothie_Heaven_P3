@@ -1,0 +1,15 @@
+{% extends "smoothies/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Login</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Login here!</button>
+</form>
+<div class="border-top pt-3">
+    <a href="{% url 'user-register' %}">Not registered yet? Sign up here!</a>
+</div>
+{% endblock %}

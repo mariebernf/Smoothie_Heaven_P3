@@ -8,8 +8,8 @@ def register(request):
         form = forms.UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your account has been created.')
-            return redirect('smoothies-home')
+            messages.success(request, 'Your account has been created, please login!')
+            return redirect('user-login')
         
     else:
         form = forms.UserRegisterForm()
