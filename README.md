@@ -29,10 +29,17 @@
 **Issue:** Registration form would not render, 'CSRF Token' error.
 
 **Resolved:** I corrected the error, which was a spelling mistake. I had 'Crsf' instead of 'Csrf'.
+
 ---
 **Issue:** Base template not found, after setting up registration view. 
 
 **Resolved:** Properly referenced in the templates settings. 
 Updated 'DIRS' setting in 'setting.py' to include the correct template.
+
 ---
+
+**Issue:** I installed crispy-forms, but it would not work.
+
+**Resolved:** I installed crispy-bootstrap5 for compatibility, and it now works as intended.
+
 ## Credits
