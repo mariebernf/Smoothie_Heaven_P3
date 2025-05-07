@@ -50,4 +50,10 @@ Updated 'DIRS' setting in 'setting.py' to include the correct template.
 
 ---
 
+**Issue:** Smoothie detail page was returning a 404 error because the URL pattern and view were not correctly set up.
+
+**Resolved:** Updated urls.py with the correct path for smoothie detail view.
+
+---
+
 ## Credits
