@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from smoothies import views as smoothie_views
+from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', smoothie_views.home, name='home'),
-    path('', include('smoothies.urls')),
+    path('smoothies/', include('smoothies.urls')),
     path('users/', include('users.urls')),
+    path('register/', user_views.register, name='user-register'),
 ]
