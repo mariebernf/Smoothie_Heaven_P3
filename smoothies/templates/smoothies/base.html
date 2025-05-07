@@ -24,6 +24,7 @@
               <a class="nav-link" href="{% url 'about' %}">About</a>
               
               {% if user.is_authenticated %}
+              <a class="nav-link" href="{% url 'user-profile' %}">profile</a>
                 <!-- Logout Form (POST request) -->
                 <form action="{% url 'user-logout' %}" method="post" class="d-inline">
                     {% csrf_token %}
