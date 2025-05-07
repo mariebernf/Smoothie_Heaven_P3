@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', smoothie_views.home, name='home'),
     path('', include('smoothies.urls')),
+    path('users/', include('users.urls')),
 ]
