@@ -1,12 +1,12 @@
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Smoothie
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import models
 
 
 def home(request):
-    smoothies = Smoothie.objects.all()
+    smoothies = models.Smoothie.objects.all()
     context = {
         'smoothies': smoothies
     }
@@ -22,11 +22,15 @@ class SmoothieDetailView(DetailView):
     template_name = 'smoothies/smoothie_detail.html'
     context_object_name = 'object'
 
-class SmoothieCreateView(CreateView):
+class SmoothieCreateView(LoginRequiredMixin, CreateView):
     model = models.Smoothie
-    fields = ['name', 'description', 'ingredients', 'author']
+    fields = ['name', 'description', 'ingredients']
     template_name = 'smoothies/smoothie_form.html'
     success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 def about(request):
     return render(request, 'smoothies/about.html')
