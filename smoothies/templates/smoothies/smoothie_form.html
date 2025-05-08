@@ -1,0 +1,17 @@
+{% extends "smoothies/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Blend and Share! Add your Smoothie recipe!</h2>
+
+<form method="POST" action="{% url 'smoothies-create' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Submit</button>
+</form>
+
+<div class="border-top pt-3">
+    <a href="{%  url 'smoothies-home' %}">Cancel</a>
+</div>
+{% endblock %}

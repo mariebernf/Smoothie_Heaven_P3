@@ -1,18 +1,17 @@
 {% extends "smoothies/base.html" %}
 
-{% block title %}Home - Smoothie Heaven{% endblock %}
-
 {% block content %}
-    <h2 class="text-center my-5">Smoothie # {{smoothie.id}}</h2>
+<h1>Smoothie # {{object.id}}</h1>
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
         
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">{{ smoothie.name }}</h5>
-                        <p class="card-text">{{ smoothie.description }}</p>
-                        <p><strong>Ingredients:</strong> {{ smoothie.ingredients }}</p>
-                        <p><em>Posted on {{ smoothie.date_posted }} by {{ smoothie.author }}</em></p>
+                        <h5 class="card-title">{{ object.name }}</h5>
+                        <p class="card-text">{{ object.description }}</p>
+                        <p><strong>Ingredients:</strong> {{ object.ingredients }}</p>
+                        <p><em>Posted on {{ object.date_posted }} by {{ object.author }}</em></p>
                     </div>
                 </div>
             </div>

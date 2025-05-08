@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render, HttpResponse
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Smoothie
+
+from . import models
 
 
 def home(request):
@@ -11,14 +13,20 @@ def home(request):
     return render(request, 'smoothies/home.html', context)
 
 class SmoothieListView(ListView):
-    model = Smoothie
+    model = models.Smoothie
     template_name = 'smoothies/home.html'
     context_object_name = 'smoothies'
 
 class SmoothieDetailView(DetailView):
-    model = Smoothie
+    model = models.Smoothie
     template_name = 'smoothies/smoothie_detail.html'
-    context_object_name = 'smoothie'
+    context_object_name = 'object'
+
+class SmoothieCreateView(CreateView):
+    model = models.Smoothie
+    fields = ['name', 'description', 'ingredients', 'author']
+    template_name = 'smoothies/smoothie_form.html'
+    success_url = '/'
 
 def about(request):
     return render(request, 'smoothies/about.html')
